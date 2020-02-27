@@ -2,7 +2,7 @@
 
 Back end repository for: co-make-3
 
-Base url: ""
+Base url: http://co-make-3.herokuapp.com/
 
 ## API Routes
 
