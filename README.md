@@ -175,7 +175,7 @@ Required fields: description, city, zip_code
 
 optional fields: post_image_url
 
-**POST /api/posts**
+POST /api/posts
 
 Expected Request Body:
 
@@ -208,7 +208,7 @@ Same required/optional fields as adding a post
 
 PUT /api/posts/:id**
 
-### delete post using post id
+### Delete post using post id
 
 DELETE /api/posts/:id**
 
@@ -256,7 +256,7 @@ Returns:
 }
 ```
 
-### edit comment using comment id
+### Edit comment using comment id
 
 PUT /api/comments/:id
 
@@ -278,6 +278,6 @@ Returns:
 }
 ```
 
-### delete a comment using comment id
+### Delete a comment using comment id
 
 DELETE /api/comments/:id
