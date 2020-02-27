@@ -204,7 +204,11 @@ PUT /api/posts/:id/decrement/votes
 
 ## Comments Endpoints
 
-add comment to post using post id
+Get all comments associated with a single post
+
+GET /api/posts/:id/comments
+
+Add comment to post using post id
 
 POST /api/posts/:id/comments
 
