@@ -150,7 +150,9 @@ Get posts authored by logged in user
 GET /api/posts/by/user
 
 Add new post
+
 Required fields: description, city, zip_code
+
 optional fields: post_image_url
 
 POST /api/posts
@@ -181,19 +183,25 @@ Returns:
 ```
 
 Update post using post id
+
 Same required/optional fields as adding a post
+
 PUT /api/posts/:id
 
 delete post using post id
+
 DELETE /api/posts/:id
 
 Increment votes for one post using post id -NO NEED TO ADD PAYLOAD/BODY TO THE REQUEST-
+
 PUT /api/posts/:id/increment/votes
 
 Decrement votes for one post using post id -NO NEED TO ADD A PAYLOAD/BODY TO THE REQUEST-
+
 PUT /api/posts/:id/decrement/votes
 
 add comment to post using post id
+
 POST /api/posts/:id/comments
 
 Expected Request Body:
@@ -238,4 +246,5 @@ Returns:
 ```
 
 delete a comment using comment id
+
 DELETE /api/comments/:id
