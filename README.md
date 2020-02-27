@@ -31,7 +31,7 @@ Base url: http://co-make-3.herokuapp.com/
 
 Register a new user:
 
-POST /api/auth/register
+**POST /api/auth/register**
 
 Required fields: username, password, first_name, last_name, email
 
@@ -71,7 +71,7 @@ Returns:
 
 Login user endpoint:
 
-POST /api/auth/login
+**POST /api/auth/login**
 
 Expected Request Body:
 
@@ -97,7 +97,7 @@ Returns:
 
 Get user info by user id
 
-GET /api/users/:id
+**GET /api/users/:id**
 
 Returns:
 
@@ -115,7 +115,7 @@ Returns:
 
 Update user -Logged in user can only update their own account-
 
-PUT /api/users/:id
+**PUT /api/users/:id**
 
 Expected Request Body:
 
@@ -145,7 +145,7 @@ Returns:
 
 Delete user -Logged in user can only delete their own account-
 
-DELETE /api/users/:id
+**DELETE /api/users/:i**
 
 Returns:
 
@@ -160,15 +160,15 @@ Returns:
 
 Get all posts for all users
 
-GET /api/posts
+**GET /api/posts**
 
 Get post and related comments using post id
 
-GET /api/posts/:id
+**GET /api/posts/:id**
 
 Get posts authored by logged in user
 
-GET /api/posts/by/user
+**GET /api/posts/by/user**
 
 Add new post
 
@@ -176,7 +176,7 @@ Required fields: description, city, zip_code
 
 optional fields: post_image_url
 
-POST /api/posts
+**POST /api/posts**
 
 Expected Request Body:
 
@@ -207,31 +207,31 @@ Update post using post id
 
 Same required/optional fields as adding a post
 
-PUT /api/posts/:id
+**PUT /api/posts/:id**
 
 delete post using post id
 
-DELETE /api/posts/:id
+**DELETE /api/posts/:id**
 
 ## Votes Endpoints
 
-Increment votes for one post using post id -NO NEED TO ADD PAYLOAD/BODY TO THE REQUEST-
+Increment votes for one post using post id **NO NEED TO ADD PAYLOAD/BODY TO THE REQUEST**
 
-PUT /api/posts/:id/increment/votes
+**PUT /api/posts/:id/increment/votes**
 
-Decrement votes for one post using post id -NO NEED TO ADD A PAYLOAD/BODY TO THE REQUEST-
+Decrement votes for one post using post id **NO NEED TO ADD A PAYLOAD/BODY TO THE REQUEST**
 
-PUT /api/posts/:id/decrement/votes
+**PUT /api/posts/:id/decrement/votes**
 
 ## Comments Endpoints
 
 Get all comments associated with a single post
 
-GET /api/posts/:id/comments
+**GET /api/posts/:id/comments**
 
 Add comment to post using post id
 
-POST /api/posts/:id/comments
+**POST /api/posts/:id/comments**
 
 Expected Request Body:
 
@@ -254,7 +254,8 @@ Returns:
 ```
 
 edit comment using comment id
-PUT /api/comments/:id
+
+**PUT /api/comments/:id**
 
 ```
 {
@@ -276,4 +277,4 @@ Returns:
 
 delete a comment using comment id
 
-DELETE /api/comments/:id
+**DELETE /api/comments/:id**
