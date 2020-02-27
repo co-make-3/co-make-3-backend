@@ -105,7 +105,6 @@ Returns:
 {
   "id": 1,
   "username": "user1-edited",
-  "password": "password",
   "first_name": "Patrick",
   "last_name": "Replogle",
   "email": "user1@gmail.com",
