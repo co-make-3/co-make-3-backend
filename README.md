@@ -29,7 +29,7 @@ Base url: http://co-make-3.herokuapp.com/
 
 ## Authentication Endpoints:
 
-Register a new user:
+###Register a new user:
 
 **POST /api/auth/register**
 
@@ -69,7 +69,7 @@ Returns:
 }
 ```
 
-Login user endpoint:
+###Login user endpoint:
 
 **POST /api/auth/login**
 
