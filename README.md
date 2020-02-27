@@ -112,7 +112,7 @@ Returns:
 }
 ```
 
-### Update user -Logged in user can only update their own account-
+### Update user by user id
 
 PUT /api/users/:id
 
@@ -142,7 +142,7 @@ Returns:
 }
 ```
 
-### Delete user -Logged in user can only delete their own account-
+### Delete user 
 
 DELETE /api/users/:id
 
@@ -214,11 +214,15 @@ DELETE /api/posts/:id**
 
 ## Votes Endpoints
 
-### Increment votes for one post using post id **NO NEED TO ADD PAYLOAD/BODY TO THE REQUEST**
+### Increment votes for one post using post id 
+
+NO NEED TO ADD PAYLOAD/BODY TO THE REQUEST
 
 PUT /api/posts/:id/increment/votes
 
-### Decrement votes for one post using post id **NO NEED TO ADD A PAYLOAD/BODY TO THE REQUEST**
+### Decrement votes for one post using post id 
+
+NO NEED TO ADD A PAYLOAD/BODY TO THE REQUEST
 
 PUT /api/posts/:id/decrement/votes
 
