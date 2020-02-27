@@ -192,6 +192,8 @@ delete post using post id
 
 DELETE /api/posts/:id
 
+## Votes Endpoints
+
 Increment votes for one post using post id -NO NEED TO ADD PAYLOAD/BODY TO THE REQUEST-
 
 PUT /api/posts/:id/increment/votes
@@ -199,6 +201,8 @@ PUT /api/posts/:id/increment/votes
 Decrement votes for one post using post id -NO NEED TO ADD A PAYLOAD/BODY TO THE REQUEST-
 
 PUT /api/posts/:id/decrement/votes
+
+## Comments Endpoints
 
 add comment to post using post id
 
