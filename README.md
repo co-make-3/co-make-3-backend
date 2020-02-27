@@ -6,6 +6,27 @@ Base url: http://co-make-3.herokuapp.com/
 
 ## API Routes
 
+| http type     | endpoint                        | category        |
+| ------------- |:-------------------------------:| ---------------:|
+| post          | /api/auth/register              | auth            |
+| post          | /api/auth/login                 | auth            | 
+| get           | /api/users/:id                  | users           |
+| put           | /api/users/:id                  | users           |
+| delete        | /api/users/:id                  | users           |
+| get           | /api/posts                      | all posts       |
+| get           | /api/posts/:id                  | posts           |
+| get           | /api/posts/by/user              | posts by user   |
+| post          | /api/posts                      | posts           |
+| put           | /api/posts/:id                  | posts           |
+| delete        | /api/posts/:id                  | posts           |
+| put           | /api/posts/:id/increment/votes  | votes           |
+| put           | /api/posts/:id/decrement/votes  | votes           |
+| get           | /api/posts/:id/comments         | comments        |
+| post          | /api/posts/:id/comments         | comments        |
+| put           | /api/comments/:id               | comments        |
+| delete        | /api/comments/:id               | comments        |
+
+
 ## Authentication Endpoints:
 
 Register a new user:
