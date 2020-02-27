@@ -42,6 +42,7 @@ module.exports = {
     seeds: {
       directory: "./database/seeds"
     },
+    useNullAsDefault: true,
     pool: {
       min: 2,
       max: 10
