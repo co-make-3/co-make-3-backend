@@ -6,25 +6,25 @@ Base url: http://co-make-3.herokuapp.com/
 
 ## API Routes
 
-| http type     | endpoint                        | category        |
-| ------------- |:-------------------------------:| ---------------:|
-| post          | /api/auth/register              | auth            |
-| post          | /api/auth/login                 | auth            | 
-| get           | /api/users/:id                  | users           |
-| put           | /api/users/:id                  | users           |
-| delete        | /api/users/:id                  | users           |
-| get           | /api/posts                      | all posts       |
-| get           | /api/posts/:id                  | posts           |
-| get           | /api/posts/by/user              | posts by user   |
-| post          | /api/posts                      | posts           |
-| put           | /api/posts/:id                  | posts           |
-| delete        | /api/posts/:id                  | posts           |
-| put           | /api/posts/:id/increment/votes  | votes           |
-| put           | /api/posts/:id/decrement/votes  | votes           |
-| get           | /api/posts/:id/comments         | comments        |
-| post          | /api/posts/:id/comments         | comments        |
-| put           | /api/comments/:id               | comments        |
-| delete        | /api/comments/:id               | comments        |
+| http type     | endpoint                        | category        | payload |
+| ------------- |:-------------------------------:| ---------------:| -------:|
+| post          | /api/auth/register              | auth            | yes     |
+| post          | /api/auth/login                 | auth            | yes     | 
+| get           | /api/users/:id                  | users           | no      | 
+| put           | /api/users/:id                  | users           | yes     | 
+| delete        | /api/users/:id                  | users           | no      | 
+| get           | /api/posts                      | all posts       | no      | 
+| get           | /api/posts/:id                  | posts           | no      | 
+| get           | /api/posts/by/user              | posts by user   | no      | 
+| post          | /api/posts                      | posts           | yes     | 
+| put           | /api/posts/:id                  | posts           | yes     | 
+| delete        | /api/posts/:id                  | posts           | no      | 
+| put           | /api/posts/:id/increment/votes  | votes           | no      | 
+| put           | /api/posts/:id/decrement/votes  | votes           | no      | 
+| get           | /api/posts/:id/comments         | comments        | no      | 
+| post          | /api/posts/:id/comments         | comments        | yes     | 
+| put           | /api/comments/:id               | comments        | yes     | 
+| delete        | /api/comments/:id               | comments        | no      | 
 
 
 ## Authentication Endpoints:
@@ -145,7 +145,7 @@ Returns:
 
 Delete user -Logged in user can only delete their own account-
 
-**DELETE /api/users/:i**
+**DELETE /api/users/:id**
 
 Returns:
 
