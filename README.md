@@ -219,13 +219,13 @@ DELETE /api/posts/:id
 
 ### Increment votes for one post using post id
 
-NO NEED TO ADD PAYLOAD/BODY TO THE REQUEST
+No need to add a payload/body to this request
 
 PUT /api/posts/:id/increment/votes
 
 ### Decrement votes for one post using post id
 
-NO NEED TO ADD A PAYLOAD/BODY TO THE REQUEST
+No need to add a payload/body to this request
 
 PUT /api/posts/:id/decrement/votes
 
