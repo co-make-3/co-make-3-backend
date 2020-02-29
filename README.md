@@ -6,26 +6,25 @@ Base url: http://co-make-3.herokuapp.com/
 
 ## API Routes
 
-| http type     | endpoint                        | category        | payload |
-| ------------- |:-------------------------------:| ---------------:| -------:|
-| post          | /api/auth/register              | auth            | yes     |
-| post          | /api/auth/login                 | auth            | yes     | 
-| get           | /api/users/:id                  | users           | no      | 
-| put           | /api/users/:id                  | users           | yes     | 
-| delete        | /api/users/:id                  | users           | no      | 
-| get           | /api/posts                      | all posts       | no      | 
-| get           | /api/posts/:id                  | posts           | no      | 
-| get           | /api/posts/by/user              | posts by user   | no      | 
-| post          | /api/posts                      | posts           | yes     | 
-| put           | /api/posts/:id                  | posts           | yes     | 
-| delete        | /api/posts/:id                  | posts           | no      | 
-| put           | /api/posts/:id/increment/votes  | votes           | no      | 
-| put           | /api/posts/:id/decrement/votes  | votes           | no      | 
-| get           | /api/posts/:id/comments         | comments        | no      | 
-| post          | /api/posts/:id/comments         | comments        | yes     | 
-| put           | /api/comments/:id               | comments        | yes     | 
-| delete        | /api/comments/:id               | comments        | no      | 
-
+| http type |            endpoint            |      category | payload |
+| --------- | :----------------------------: | ------------: | ------: |
+| post      |       /api/auth/register       |          auth |     yes |
+| post      |        /api/auth/login         |          auth |     yes |
+| get       |         /api/users/:id         |         users |      no |
+| put       |         /api/users/:id         |         users |     yes |
+| delete    |         /api/users/:id         |         users |      no |
+| get       |           /api/posts           |     all posts |      no |
+| get       |         /api/posts/:id         |         posts |      no |
+| get       |       /api/posts/by/user       | posts by user |      no |
+| post      |           /api/posts           |         posts |     yes |
+| put       |         /api/posts/:id         |         posts |     yes |
+| delete    |         /api/posts/:id         |         posts |      no |
+| put       | /api/posts/:id/increment/votes |         votes |      no |
+| put       | /api/posts/:id/decrement/votes |         votes |      no |
+| get       |    /api/posts/:id/comments     |      comments |      no |
+| post      |    /api/posts/:id/comments     |      comments |     yes |
+| put       |       /api/comments/:id        |      comments |     yes |
+| delete    |       /api/comments/:id        |      comments |      no |
 
 ## Authentication Endpoints:
 
@@ -57,7 +56,6 @@ Returns:
     "new_user": {
         "id": 1,
         "username": "user1",
-        "password": "$2a$10$kJw66/2Yb1xnUIczPAXIze5hiyjCnxTebH1oGukuxWeYvVp8aRrMG",
         "first_name": "Patrick",
         "last_name": "Replogle",
         "email": "user1@email.com",
@@ -142,7 +140,7 @@ Returns:
 }
 ```
 
-### Delete user 
+### Delete user
 
 DELETE /api/users/:id
 
@@ -206,21 +204,21 @@ Returns:
 
 Same required/optional fields as adding a post
 
-PUT /api/posts/:id**
+PUT /api/posts/:id\*\*
 
 ### Delete post using post id
 
-DELETE /api/posts/:id**
+DELETE /api/posts/:id\*\*
 
 ## Votes Endpoints
 
-### Increment votes for one post using post id 
+### Increment votes for one post using post id
 
 NO NEED TO ADD PAYLOAD/BODY TO THE REQUEST
 
 PUT /api/posts/:id/increment/votes
 
-### Decrement votes for one post using post id 
+### Decrement votes for one post using post id
 
 NO NEED TO ADD A PAYLOAD/BODY TO THE REQUEST
 

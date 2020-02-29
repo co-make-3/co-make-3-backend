@@ -23,7 +23,7 @@ router.get("/:id", async (req, res, next) => {
   const { id } = req.params;
   try {
     const post = await Posts.findPostById(id);
-    const comments = await Comments.findAllPostComments(id);
+    const comments = await Comments.findComments(id);
 
     if (post) {
       res.status(200).json({
@@ -162,7 +162,7 @@ router.get("/:id/comments", async (req, res, next) => {
     const { id } = req.params;
     const post = await Posts.findPostById(id);
     if (post) {
-      res.json(await Comments.findCommentsBy(id));
+      res.json(await Comments.findComments(id));
     } else {
       res.status(401).json({ message: "The specified post id does not exist" });
     }
