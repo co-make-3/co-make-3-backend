@@ -204,11 +204,11 @@ Returns:
 
 Same required/optional fields as adding a post
 
-PUT /api/posts/:id\*\*
+PUT /api/posts/:id
 
 ### Delete post using post id
 
-DELETE /api/posts/:id\*\*
+DELETE /api/posts/:id
 
 ## Votes Endpoints
 
