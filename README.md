@@ -41,8 +41,8 @@ Base url: http://co-make-3.herokuapp.com/
 ### Votes endpoints
 | http type |            endpoint            |      category    | payload |
 | --------- | :----------------------------: | --------------:  | -------:|
-| put       | /api/posts/:id/increment/votes |         votes    |      no |
-| put       | /api/posts/:id/decrement/votes |         votes    |      no |
+| put       | /api/posts/:id/increment/votes | increase votes   |      no |
+| put       | /api/posts/:id/decrement/votes | decrease votes   |      no |
 
 
 ### Comments endpoints
