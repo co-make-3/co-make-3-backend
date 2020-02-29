@@ -251,7 +251,7 @@ Expected Request Body:
 
 ```
 {
-	"city": "portland",
+	"city": "portland"
 }
 ```
 
@@ -265,7 +265,7 @@ Expected Request Body:
 
 ```
 {
-	"zip_code": "97219",
+	"zip_code": "97219"
 }
 ```
 
