@@ -9,10 +9,28 @@ const { verifyVotes } = require("../middleware/verifyVotes.js");
 const { isAuthor } = require("../middleware/isAuthor.js");
 const { verifyComment } = require("../middleware/verifyComment.js");
 
-// get all posts in database
+// get all posts without comments
 router.get("/", async (req, res, next) => {
   try {
     res.json(await Posts.findAllPosts());
+  } catch (err) {
+    next(err);
+  }
+});
+
+// get all posts with comments
+router.get("/comments", async (req, res, next) => {
+  try {
+    const posts = await Posts.findAllPosts();
+    const result = posts.map(async post => {
+      const comments = await Comments.findComments(post.id);
+      return {
+        ...post,
+        comments: [...comments]
+      };
+    });
+    const newRes = await Promise.all(result);
+    res.json(newRes);
   } catch (err) {
     next(err);
   }
