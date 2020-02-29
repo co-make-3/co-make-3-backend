@@ -6,13 +6,22 @@ Base url: http://co-make-3.herokuapp.com/
 
 ## API Routes
 
+### Auth endpoints
 | http type |            endpoint            |      category    | payload |
 | --------- | :----------------------------: | --------------:  | -------:|
 | post      |       /api/auth/register       |          auth    |     yes |
 | post      |        /api/auth/login         |          auth    |     yes |
+
+### User endpoints
+| http type |            endpoint            |      category    | payload |
+| --------- | :----------------------------: | --------------:  | -------:|
 | get       |         /api/users/:id         |         users    |      no |
 | put       |         /api/users/:id         |         users    |     yes |
 | delete    |         /api/users/:id         |         users    |      no |
+
+### Posts endpoints
+| http type |            endpoint            |      category    | payload |
+| --------- | :----------------------------: | --------------:  | -------:|
 | get       |           /api/posts           |     all posts    |      no |
 | get       | /api/posts/comments            |posts w/ comments |      no |
 | get       |         /api/posts/:id         |         posts    |      no |
@@ -20,8 +29,25 @@ Base url: http://co-make-3.herokuapp.com/
 | post      |           /api/posts           |         posts    |     yes |
 | put       |         /api/posts/:id         |         posts    |     yes |
 | delete    |         /api/posts/:id         |         posts    |      no |
+
+
+### Search Posts by city and zipcode endpoints
+| http type |            endpoint            |      category    | payload |
+| --------- | :----------------------------: | --------------:  | -------:|
+| post      |         /api/posts/city        |         posts    |     yes |
+| post      |         /api/posts/zipcode     |         posts    |     yes |
+
+
+### Votes endpoints
+| http type |            endpoint            |      category    | payload |
+| --------- | :----------------------------: | --------------:  | -------:|
 | put       | /api/posts/:id/increment/votes |         votes    |      no |
 | put       | /api/posts/:id/decrement/votes |         votes    |      no |
+
+
+### Comments endpoints
+| http type |            endpoint            |      category    | payload |
+| --------- | :----------------------------: | --------------:  | -------:|
 | get       |    /api/posts/:id/comments     |      comments    |      no |
 | post      |    /api/posts/:id/comments     |      comments    |     yes |
 | put       |       /api/comments/:id        |      comments    |     yes |
@@ -214,6 +240,34 @@ PUT /api/posts/:id
 ### Delete post using post id
 
 DELETE /api/posts/:id
+
+### Search Posts by city
+
+POST /api/posts/city
+
+required fields: city (not case sensitive)
+
+Expected Request Body:
+
+```
+{
+	"city": "portland",
+}
+```
+
+### Search Posts by zip_code
+
+POST /api/posts/zipcode
+
+required fields: zip_code (
+
+Expected Request Body:
+
+```
+{
+	"zip_code": "97219",
+}
+```
 
 ## Votes Endpoints
 
