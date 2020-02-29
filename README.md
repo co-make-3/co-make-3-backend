@@ -6,25 +6,26 @@ Base url: http://co-make-3.herokuapp.com/
 
 ## API Routes
 
-| http type |            endpoint            |      category | payload |
-| --------- | :----------------------------: | ------------: | ------: |
-| post      |       /api/auth/register       |          auth |     yes |
-| post      |        /api/auth/login         |          auth |     yes |
-| get       |         /api/users/:id         |         users |      no |
-| put       |         /api/users/:id         |         users |     yes |
-| delete    |         /api/users/:id         |         users |      no |
-| get       |           /api/posts           |     all posts |      no |
-| get       |         /api/posts/:id         |         posts |      no |
-| get       |       /api/posts/by/user       | posts by user |      no |
-| post      |           /api/posts           |         posts |     yes |
-| put       |         /api/posts/:id         |         posts |     yes |
-| delete    |         /api/posts/:id         |         posts |      no |
-| put       | /api/posts/:id/increment/votes |         votes |      no |
-| put       | /api/posts/:id/decrement/votes |         votes |      no |
-| get       |    /api/posts/:id/comments     |      comments |      no |
-| post      |    /api/posts/:id/comments     |      comments |     yes |
-| put       |       /api/comments/:id        |      comments |     yes |
-| delete    |       /api/comments/:id        |      comments |      no |
+| http type |            endpoint            |      category    | payload |
+| --------- | :----------------------------: | --------------:  | -------:|
+| post      |       /api/auth/register       |          auth    |     yes |
+| post      |        /api/auth/login         |          auth    |     yes |
+| get       |         /api/users/:id         |         users    |      no |
+| put       |         /api/users/:id         |         users    |     yes |
+| delete    |         /api/users/:id         |         users    |      no |
+| get       |           /api/posts           |     all posts    |      no |
+| get       | /api/posts/comments            |posts w/ comments |      no |
+| get       |         /api/posts/:id         |         posts    |      no |
+| get       |       /api/posts/by/user       | posts by user    |      no |
+| post      |           /api/posts           |         posts    |     yes |
+| put       |         /api/posts/:id         |         posts    |     yes |
+| delete    |         /api/posts/:id         |         posts    |      no |
+| put       | /api/posts/:id/increment/votes |         votes    |      no |
+| put       | /api/posts/:id/decrement/votes |         votes    |      no |
+| get       |    /api/posts/:id/comments     |      comments    |      no |
+| post      |    /api/posts/:id/comments     |      comments    |     yes |
+| put       |       /api/comments/:id        |      comments    |     yes |
+| delete    |       /api/comments/:id        |      comments    |      no |
 
 ## Authentication Endpoints:
 
