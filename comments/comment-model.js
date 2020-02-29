@@ -1,19 +1,14 @@
 const db = require("../database/dbConfig.js");
 
 module.exports = {
-  findCommentsBy,
-  findAllPostComments,
+  findComments,
   findCommentById,
   addComment,
   updateComment,
   removeComment
 };
 
-function findCommentsBy(id) {
-  return db("comments").where("post_id", id);
-}
-
-function findAllPostComments(id) {
+function findComments(id) {
   return db("comments").where("post_id", id);
 }
 
