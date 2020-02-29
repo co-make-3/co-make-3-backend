@@ -160,6 +160,10 @@ Returns:
 
 GET /api/posts
 
+### Get all posts for all users with comments
+
+GET /api/posts/comments 
+
 ### Get post and related comments using post id
 
 GET /api/posts/:id
