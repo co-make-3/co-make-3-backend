@@ -36,6 +36,48 @@ router.get("/comments", async (req, res, next) => {
   }
 });
 
+// search posts by city
+router.post("/city", async (req, res, next) => {
+  try {
+    if (!req.body.city) {
+      return res.status(400).json({ message: "City field must by included" });
+    }
+    const { city } = req.body;
+    const posts = await Posts.findByCity(city.toLowerCase());
+    if (posts.length > 0) {
+      res.json(posts);
+    } else {
+      res.status(401).json({
+        message: "There are currently no posts with the specified city"
+      });
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
+// search posts by zip code
+router.post("/zipcode", async (req, res, next) => {
+  try {
+    if (!req.body.zip_code) {
+      return res
+        .status(400)
+        .json({ message: "zip_code field must be included" });
+    }
+    const { zip_code } = req.body;
+    const posts = await Posts.findPostBy({ zip_code });
+    if (posts.length > 0) {
+      res.json(posts);
+    } else {
+      res.status(401).json({
+        message: "There are currently no posts with specified zip_cod"
+      });
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
 // get post by post id
 router.get("/:id", async (req, res, next) => {
   const { id } = req.params;

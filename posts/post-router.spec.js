@@ -59,6 +59,22 @@ describe("get all posts", () => {
   });
 });
 
+describe("get all posts with comments", () => {
+  test("should return a 200 status", async () => {
+    const res = await supertest(server)
+      .get("/api/posts/comments")
+      .set("Authorization", `${token}`);
+    expect(res.status).toBe(200);
+  });
+
+  test("res length should 4", async () => {
+    const res = await supertest(server)
+      .get("/api/posts/comments")
+      .set("Authorization", `${token}`);
+    expect(res.body).toHaveLength(4);
+  });
+});
+
 describe("get post by id", () => {
   test("should return a 200 status", async () => {
     const res = await supertest(server)

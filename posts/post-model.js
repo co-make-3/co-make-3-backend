@@ -5,6 +5,7 @@ module.exports = {
   findPostById,
   findPostBy,
   findUserPosts,
+  findByCity,
   addPost,
   updatePost,
   removePost,
@@ -21,6 +22,12 @@ function findPostById(id) {
   return db("posts")
     .where({ id })
     .first();
+}
+
+function findByCity(city) {
+  return db("posts")
+    .select("*")
+    .whereRaw('LOWER("city") LIKE ?', city);
 }
 
 function findPostBy(filter) {
