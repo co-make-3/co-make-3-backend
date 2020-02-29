@@ -20,6 +20,13 @@ const newPost = {
   user_id: 1
 };
 
+const newComment = {
+  text: "new comment",
+  username: "user1",
+  user_id: 1,
+  post_id: 1
+};
+
 // grab a token to test auth endpoint
 test("should return a status 200", async () => {
   const res = await supertest(server)
@@ -193,5 +200,76 @@ describe("increment votes", () => {
       .put("/api/posts/1/increment/votes")
       .set("Authorization", `${token}`);
     expect(res.body.votes).toBe(6);
+  });
+});
+describe("decrement votes", () => {
+  test("should return a 200 status", async () => {
+    const res = await supertest(server)
+      .put("/api/posts/1/decrement/votes")
+      .set("Authorization", `${token}`);
+    expect(res.status).toBe(200);
+  });
+
+  test("should return json", async () => {
+    const res = await supertest(server)
+      .put("/api/posts/1/decrement/votes")
+      .set("Authorization", `${token}`);
+    expect(res.type).toBe("application/json");
+  });
+
+  test("votes should be 4", async () => {
+    const res = await supertest(server)
+      .put("/api/posts/1/decrement/votes")
+      .set("Authorization", `${token}`);
+    expect(res.body.votes).toBe(4);
+  });
+});
+
+describe("add comment to post", () => {
+  test("should return a 200 status", async () => {
+    const res = await supertest(server)
+      .post("/api/posts/1/comments")
+      .set("Authorization", `${token}`)
+      .send(newComment);
+    expect(res.status).toBe(200);
+  });
+
+  test("should return json", async () => {
+    const res = await supertest(server)
+      .post("/api/posts/1/comments")
+      .set("Authorization", `${token}`)
+      .send(newComment);
+    expect(res.type).toBe("application/json");
+  });
+
+  test("should return a new comment", async () => {
+    const res = await supertest(server)
+      .post("/api/posts/1/comments")
+      .set("Authorization", `${token}`)
+      .send(newComment);
+    expect(res.body.text).toBe("new comment");
+  });
+});
+
+describe("get all comments for a post", () => {
+  test("should return a 200 status", async () => {
+    const res = await supertest(server)
+      .get("/api/posts/1/comments")
+      .set("Authorization", `${token}`);
+    expect(res.status).toBe(200);
+  });
+
+  test("should return json", async () => {
+    const res = await supertest(server)
+      .get("/api/posts/1/comments")
+      .set("Authorization", `${token}`);
+    expect(res.type).toBe("application/json");
+  });
+
+  test("should return json", async () => {
+    const res = await supertest(server)
+      .get("/api/posts/1/comments")
+      .set("Authorization", `${token}`);
+    expect(res.body).toHaveLength(1);
   });
 });
