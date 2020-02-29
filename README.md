@@ -15,27 +15,27 @@ Base url: http://co-make-3.herokuapp.com/
 ### User endpoints
 | http type |            endpoint            |      category    | payload |
 | --------- | :----------------------------: | --------------:  | -------:|
-| get       |         /api/users/:id         |         users    |      no |
-| put       |         /api/users/:id         |         users    |     yes |
-| delete    |         /api/users/:id         |         users    |      no |
+| get       |         /api/users/:id         |    user by id    |      no |
+| put       |         /api/users/:id         |    edit  user    |     yes |
+| delete    |         /api/users/:id         |   delete user    |      no |
 
 ### Posts endpoints
 | http type |            endpoint            |      category    | payload |
 | --------- | :----------------------------: | --------------:  | -------:|
 | get       |           /api/posts           |     all posts    |      no |
-| get       | /api/posts/comments            |posts w/ comments |      no |
-| get       |         /api/posts/:id         |         posts    |      no |
+| get       |      /api/posts/comments       |posts w/ comments |      no |
+| get       |         /api/posts/:id         |    post by id    |      no |
 | get       |       /api/posts/by/user       | posts by user    |      no |
-| post      |           /api/posts           |         posts    |     yes |
-| put       |         /api/posts/:id         |         posts    |     yes |
-| delete    |         /api/posts/:id         |         posts    |      no |
+| post      |           /api/posts           |     add post     |     yes |
+| put       |         /api/posts/:id         |   edit post      |     yes |
+| delete    |         /api/posts/:id         |  delete post     |      no |
 
 
-### Search Posts by city and zipcode endpoints
+### Search posts by city and zipcode endpoints
 | http type |            endpoint            |      category    | payload |
 | --------- | :----------------------------: | --------------:  | -------:|
-| post      |         /api/posts/city        |         posts    |     yes |
-| post      |         /api/posts/zipcode     |         posts    |     yes |
+| post      |         /api/posts/city        |  posts by city   |     yes |
+| post      |         /api/posts/zipcode     |posts by zip_code |     yes |
 
 
 ### Votes endpoints
