@@ -46,12 +46,12 @@ Base url: http://co-make-3.herokuapp.com/
 
 
 ### Comments endpoints
-| http type |            endpoint            |      category    | payload |
-| --------- | :----------------------------: | --------------:  | -------:|
-| get       |    /api/posts/:id/comments     |      comments    |      no |
-| post      |    /api/posts/:id/comments     |      comments    |     yes |
-| put       |       /api/comments/:id        |      comments    |     yes |
-| delete    |       /api/comments/:id        |      comments    |      no |
+| http type |            endpoint            |      category              | payload |
+| --------- | :----------------------------: | --------------------------:|--------:|
+| get       |    /api/posts/:id/comments     | all comments for one post  |      no |
+| post      |    /api/posts/:id/comments     | add comment to post        |     yes |
+| put       |       /api/comments/:id        | edit comment               |     yes |
+| delete    |       /api/comments/:id        | delete comment             |      no |
 
 ## Authentication Endpoints:
 
