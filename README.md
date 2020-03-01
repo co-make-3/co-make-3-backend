@@ -241,6 +241,8 @@ PUT /api/posts/:id
 
 DELETE /api/posts/:id
 
+## Search posts by city or zip_code
+
 ### Search Posts by city
 
 POST /api/posts/city
