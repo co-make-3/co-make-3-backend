@@ -174,7 +174,7 @@ DELETE /api/users/:id
 Returns:
 
 ```
-}
+{
   message: "User account successfully deleted",
   removed: 1
 }
@@ -210,10 +210,10 @@ Expected Request Body:
 
 ```
 {
-	"description": "stuff needs to be fixed",
-	"city": "Portland",
-	"zip_code": "97206",
-	"post_image_url": "www.image.com"
+  "description": "stuff needs to be fixed",
+  "city": "Portland",
+  "zip_code": "97206",
+  "post_image_url": "www.image.com"
 }
 ```
 
@@ -251,7 +251,7 @@ Expected Request Body:
 
 ```
 {
-	"city": "portland"
+  "city": "portland"
 }
 ```
 
@@ -259,13 +259,13 @@ Expected Request Body:
 
 POST /api/posts/zipcode
 
-required fields: zip_code (
+required fields: zip_code 
 
 Expected Request Body:
 
 ```
 {
-	"zip_code": "97219"
+  "zip_code": "97219"
 }
 ```
 
@@ -291,13 +291,15 @@ GET /api/posts/:id/comments
 
 ### Add comment to post using post id
 
+Required fields: text
+
 POST /api/posts/:id/comments
 
 Expected Request Body:
 
 ```
 {
-	"text": "new comment"
+  "text": "new comment"
 }
 ```
 
@@ -315,11 +317,13 @@ Returns:
 
 ### Edit comment using comment id
 
+Required fields: text
+
 PUT /api/comments/:id
 
 ```
 {
-	"text": "edited comment"
+  "text": "edited comment"
 }
 ```
 
