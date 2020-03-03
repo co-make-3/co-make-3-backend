@@ -1,6 +1,7 @@
 exports.seed = function(knex, Promise) {
   return knex("posts").insert([
     {
+      title: "Can somehelp fill a pothole near 50th and Powell?",
       description:
         "A pot hole needs to be filled in my neighborhood near 50th and Powell in SE Portland. I am willing to contribute money for concrete, but I could really use help with tools and the someone more skilled than I to actually fill the pothole with new concrete.",
       city: "Portland",
@@ -11,6 +12,7 @@ exports.seed = function(knex, Promise) {
       votes: 5
     },
     {
+      title: "Need help moving couch that was dumped on the street",
       description:
         "An old couch has been dumped on the sidewalk in my neighborhood. Can someone with a truck help me take it to the dump or help me donate it to household that would like it?",
       city: "Portland",
@@ -21,6 +23,7 @@ exports.seed = function(knex, Promise) {
       votes: 0
     },
     {
+      title: "Looking for volunteers to help feed the homeless",
       description:
         "I am looking to build a small group of local volunteers to help feed the homeless camping in the SE Portland area near 82nd Street. We are also partnering up with a local church to build tiny homes and any help with labor and/or money for supplies would be greatly appreciated.",
       city: "Portland",
@@ -31,6 +34,7 @@ exports.seed = function(knex, Promise) {
       votes: 2
     },
     {
+      title: "Neighborhood Watch Volunteers Needed",
       description:
         "After a recent string of burglaries in the NE Portland neighborhood in Alberta, I'm hoping to put together a local neighborhood watch to patrol the area at night. No weapons allowed, just good neighborly intentions.",
       post_image_url:
