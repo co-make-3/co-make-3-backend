@@ -227,7 +227,9 @@ Returns:
   "city": "Portland",
   "zip_code": "97206",
   "user_id": 1,
-  "votes": 0
+  "votes": 0,
+  "authorUsername": "user1",
+  "authorEmail": "fakeuser1@gmail.com"
 }
 ```
 
