@@ -15,27 +15,58 @@ module.exports = {
 };
 
 function findAllPosts() {
-  return db("posts");
+  return db("posts")
+    .select(
+      "posts.*",
+      "users.username as authorUsername",
+      "users.email as authorEmail"
+    )
+    .join("users", "posts.user_id", "users.id");
 }
 
 function findPostById(id) {
   return db("posts")
-    .where({ id })
+    .select(
+      "posts.*",
+      "users.username as authorUsername",
+      "users.email as authorEmail"
+    )
+    .join("users", "posts.user_id", "users.id")
+    .where("posts.id", id)
     .first();
 }
 
 function findByCity(city) {
   return db("posts")
-    .select("*")
+    .select(
+      "posts.*",
+      "users.username as authorUsername",
+      "users.email as authorEmail"
+    )
+    .join("users", "posts.user_id", "users.id")
     .whereRaw('LOWER("city") LIKE ?', city);
 }
 
 function findPostBy(filter) {
-  return db("posts").where(filter);
+  return db("posts")
+    .select(
+      "posts.*",
+      "users.username as authorUsername",
+      "users.email as authorEmail"
+    )
+    .join("users", "posts.user_id", "users.id")
+    .where(filter);
 }
 
 function findUserPosts(id) {
-  return db("posts").where("user_id", id);
+  return db("posts")
+    .select(
+      "posts.*",
+      "users.username as authorUsername",
+      "users.email as authorEmail"
+    )
+    .join("users", "posts.user_id", "users.id")
+    .where("user_id", id);
 }
 
 async function addPost(post) {
