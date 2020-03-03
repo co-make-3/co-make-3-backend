@@ -18,10 +18,12 @@ exports.up = async function(knex) {
 
   await knex.schema.createTable("posts", post => {
     post.increments("id");
-    post.text("description", 1000).notNullable();
+    post.string("title", 500).notNullable();
+    post.text("description", 5000).notNullable();
     post.string("post_image_url").defaultTo("");
     post.string("city", 128).notNullable();
     post.string("zip_code", 10).notNullable();
+    post.timestamp("createdAt").defaultTo(knex.fn.now());
     post
       .integer("user_id")
       .unsigned()
