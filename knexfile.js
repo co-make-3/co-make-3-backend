@@ -3,10 +3,10 @@ const dbConnection = process.env.DATABASE_URL;
 module.exports = {
   development: {
     client: "sqlite3",
-    useNullAsDefault: true,
     connection: {
       filename: "./database/co-make.db3"
     },
+    useNullAsDefault: true,
     pool: {
       afterCreate: (conn, done) => {
         conn.run("PRAGMA foreign_keys = ON", done);
@@ -34,18 +34,13 @@ module.exports = {
   },
   production: {
     client: "pg",
-    useNullAsDefault: true,
     connection: dbConnection,
+    useNullAsDefault: true,
     migrations: {
       directory: "./database/migrations"
     },
     seeds: {
       directory: "./database/seeds"
-    },
-    useNullAsDefault: true,
-    pool: {
-      min: 2,
-      max: 10
     }
   }
 };

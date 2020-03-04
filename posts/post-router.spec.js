@@ -14,7 +14,6 @@ afterAll(async () => {
 });
 
 const newPost = {
-  title: "test title",
   description: "test post",
   city: "Portland",
   zip_code: "97219",
