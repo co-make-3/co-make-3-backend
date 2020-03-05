@@ -41,8 +41,7 @@ Base url: http://co-make-3.herokuapp.com/
 ### Votes endpoints
 | http type |            endpoint            |      category    | payload |
 | --------- | :----------------------------: | --------------:  | -------:|
-| put       | /api/posts/:id/increment/votes | increase votes   |      no |
-| put       | /api/posts/:id/decrement/votes | decrease votes   |      no |
+| post      | /api/posts/:id/increment/votes | increase votes   |      no |
 
 
 ### Comments endpoints
@@ -200,7 +199,7 @@ GET /api/posts/by/user
 
 ### Add new post
 
-Required fields: description, city, zip_code
+Required fields: title, description, city, zip_code
 
 optional fields: post_image_url
 
@@ -210,6 +209,7 @@ Expected Request Body:
 
 ```
 {
+  "title": "new post",
   "description": "stuff needs to be fixed",
   "city": "Portland",
   "zip_code": "97206",
@@ -222,6 +222,7 @@ Returns:
 ```
 {
   "id": 5,
+  "title": "new post",
   "description": "stuff needs to be fixed",
   "post_image_url": "www.image.com",
   "city": "Portland",
@@ -279,13 +280,7 @@ Expected Request Body:
 
 No need to add a payload/body to this request
 
-PUT /api/posts/:id/increment/votes
-
-### Decrement votes for one post using post id
-
-No need to add a payload/body to this request
-
-PUT /api/posts/:id/decrement/votes
+POST /api/posts/:id/increment/votes
 
 ## Comments Endpoints
 
