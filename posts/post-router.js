@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const Posts = require("./post-model.js");
 const Comments = require("../comments/comment-model.js");
+const Votes = require("../votes/vote-model.js");
 
 const { postFields } = require("../middleware/postFields.js");
 const { verifyVotes } = require("../middleware/verifyVotes.js");
@@ -122,6 +123,7 @@ router.post("/", postFields, async (req, res, next) => {
     const { id } = decoded;
 
     const payload = {
+      title: req.body.title,
       description: req.body.description,
       city: req.body.city,
       zip_code: req.body.zip_code,
@@ -140,6 +142,7 @@ router.put("/:id", postFields, isAuthor, async (req, res, next) => {
   try {
     const { id } = req.params;
     const payload = {
+      title: req.body.title,
       description: req.body.description,
       city: req.body.city,
       zip_code: req.body.zip_code,
@@ -168,16 +171,32 @@ router.delete("/:id", isAuthor, async (req, res, next) => {
 });
 
 // increment votes on a post
-router.put("/:id/increment/votes", verifyVotes, async (req, res, next) => {
+router.post("/:id/increment/votes", verifyVotes, async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const increment = await Posts.incrementVotes(id);
-    if (increment) {
-      res.json(await Posts.findPostById(id));
+    let decoded = jwt.decode(req.headers.authorization);
+    const { id } = decoded;
+
+    const payload = {
+      user_id: id,
+      post_id: req.params.id
+    };
+
+    const voted = await Votes.findVotesForPost(id, req.params.id);
+
+    if (voted.length === 0) {
+      await Votes.addVote(payload);
+      const increment = await Posts.incrementVotes(req.params.id);
+      if (increment) {
+        res.json(await Posts.findPostById(req.params.id));
+      } else {
+        res
+          .status(401)
+          .json({ message: "The specfified Post id does not exist" });
+      }
     } else {
-      res
-        .status(401)
-        .json({ message: "The specfified Post id does not exist" });
+      await Votes.removeVote(id, req.params.id);
+      await Posts.decrementVotes(req.params.id);
+      res.json(await Posts.findPostById(req.params.id));
     }
   } catch (err) {
     next(err);
@@ -185,20 +204,20 @@ router.put("/:id/increment/votes", verifyVotes, async (req, res, next) => {
 });
 
 // decrement votes on a post
-router.put("/:id/decrement/votes", verifyVotes, async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const count = await Posts.findVoteCount(id);
-    if (count.votes > 0) {
-      await Posts.decrementVotes(id);
-      res.json(await Posts.findPostById(id));
-    } else {
-      res.json(await Posts.findPostById(id));
-    }
-  } catch (err) {
-    next(err);
-  }
-});
+// router.put("/:id/decrement/votes", verifyVotes, async (req, res, next) => {
+//   try {
+//     const { id } = req.params;
+//     const count = await Posts.findVoteCount(id);
+//     if (count.votes > 0) {
+//       await Posts.decrementVotes(id);
+//       res.json(await Posts.findPostById(id));
+//     } else {
+//       res.json(await Posts.findPostById(id));
+//     }
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 // add a comment to a post
 router.post("/:id/comments", verifyComment, async (req, res, next) => {

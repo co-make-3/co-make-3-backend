@@ -14,6 +14,7 @@ afterAll(async () => {
 });
 
 const newPost = {
+  title: "title",
   description: "test post",
   city: "Portland",
   zip_code: "97219",
@@ -193,51 +194,6 @@ describe("delete post", () => {
       .delete("/api/posts/1")
       .set("Authorization", `${token}`);
     expect(res.body.deleted).toBe(1);
-  });
-});
-
-describe("increment votes", () => {
-  test("should return a 200 status", async () => {
-    const res = await supertest(server)
-      .put("/api/posts/1/increment/votes")
-      .set("Authorization", `${token}`);
-    expect(res.status).toBe(200);
-  });
-
-  test("should return json", async () => {
-    const res = await supertest(server)
-      .put("/api/posts/1/increment/votes")
-      .set("Authorization", `${token}`);
-    expect(res.type).toBe("application/json");
-  });
-
-  test("votes should be 6", async () => {
-    const res = await supertest(server)
-      .put("/api/posts/1/increment/votes")
-      .set("Authorization", `${token}`);
-    expect(res.body.votes).toBe(6);
-  });
-});
-describe("decrement votes", () => {
-  test("should return a 200 status", async () => {
-    const res = await supertest(server)
-      .put("/api/posts/1/decrement/votes")
-      .set("Authorization", `${token}`);
-    expect(res.status).toBe(200);
-  });
-
-  test("should return json", async () => {
-    const res = await supertest(server)
-      .put("/api/posts/1/decrement/votes")
-      .set("Authorization", `${token}`);
-    expect(res.type).toBe("application/json");
-  });
-
-  test("votes should be 4", async () => {
-    const res = await supertest(server)
-      .put("/api/posts/1/decrement/votes")
-      .set("Authorization", `${token}`);
-    expect(res.body.votes).toBe(4);
   });
 });
 
